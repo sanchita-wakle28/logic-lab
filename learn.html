@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Learn — Propositions &amp; Predicates</title>
+<link rel="stylesheet" href="css/style.css">
+<style>
+  .legend { display: flex; gap: 18px; flex-wrap: wrap; margin: 18px 0 28px; }
+  .legend .item { display: flex; align-items: center; gap: 8px; font-size: .92rem; color: var(--text-dim); }
+  .legend .sym { font-family: var(--font-mono); background: var(--panel-2); border-radius: var(--r-sm); padding: 3px 9px; color: var(--accent-bright); font-weight: 700; }
+
+  .builder { display: grid; grid-template-columns: 1fr 1.2fr; gap: 26px; }
+  .builder-input-row { display: flex; gap: 10px; }
+  .builder-input-row input { flex: 1; }
+  .quick-syms { display: flex; gap: 8px; flex-wrap: wrap; margin-top: 10px; }
+  .quick-syms button { font-family: var(--font-mono); background: var(--panel-2); border: 1px solid var(--border); color: var(--accent-bright); border-radius: var(--r-sm); padding: 6px 11px; cursor: pointer; font-size: .95rem; }
+  .quick-syms button:hover { border-color: var(--border-strong); }
+  .verdict { margin-top: 16px; }
+  .error-msg { color: var(--false); font-size: .88rem; margin-top: 10px; font-family: var(--font-mono); }
+
+  .quant-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 26px; }
+  .domain-chip { display: inline-flex; align-items: center; gap: 6px; font-family: var(--font-mono); font-size: .85rem; padding: 6px 10px; border-radius: var(--r-sm); background: var(--panel-2); border: 1px solid var(--border); }
+  .domain-list { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 12px; max-height: 190px; overflow-y: auto; }
+  .quant-result { margin-top: 18px; padding: 16px; border-radius: var(--r-md); border: 1px solid var(--border); background: var(--panel-2); }
+  .quant-result h4 { font-family: var(--font-mono); font-size: 1rem; margin-bottom: 6px; }
+
+  .quiz-item { padding: 18px; border-radius: var(--r-md); border: 1px solid var(--border); background: var(--panel-2); }
+  .quiz-options { display: flex; gap: 10px; margin-top: 12px; flex-wrap: wrap; }
+  .quiz-feedback { margin-top: 10px; font-size: .9rem; min-height: 1.4em; }
+
+  @media (max-width: 860px) {
+    .builder, .quant-grid { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+<div class="topbar">
+  <a class="brand" href="index.html"><span class="mark">P</span>Logic Lab</a>
+  <div class="nav-controls">
+    <nav class="nav-links">
+      <a href="index.html">Home</a>
+      <a href="learn.html">Learn</a>
+      <a href="game.html">Play</a>
+    </nav>
+    <select id="themeSelect" class="theme-select" aria-label="Select Theme">
+  <option value="neon-circuit">⚡ Neon Circuit (Dark)</option>
+  <option value="neon-twilight">🌆 Neon Twilight (Light)</option>
+  <option value="dystopia-glitch">🤖 Cyberpunk Glitch (Dark)</option>
+  <option value="dystopia-light">⚠️ Cyberpunk Hazard (Light)</option>
+  <option value="pixel-lavender">🔮 Pixel Lavender (Dark)</option>
+  <option value="pixel-sakura">🌸 Pixel Sakura (Light)</option>
+</select>
+  </div>
+</div>
+
+<div class="wrap">
+
+  <section class="section" style="padding-top:12px;">
+    <div class="eyebrow">CONCEPT 1 OF 3</div>
+    <h2>What is a proposition?</h2>
+    <p style="max-width:640px; margin-top:12px;">A <strong>proposition</strong> is a declarative sentence that is either true or false — never both, and never neither. "It is raining" is a proposition. "Please close the door" and "Is it raining?" are not, because they carry no truth value. We build compound propositions out of simple ones using logical connectives:</p>
+    <div class="legend">
+      <div class="item"><span class="sym">¬p</span> NOT p</div>
+      <div class="item"><span class="sym">p ∧ q</span> p AND q</div>
+      <div class="item"><span class="sym">p ∨ q</span> p OR q</div>
+      <div class="item"><span class="sym">p → q</span> p IMPLIES q</div>
+      <div class="item"><span class="sym">p ↔ q</span> p IFF q</div>
+    </div>
+
+    <div class="panel stack" id="quizPanel">
+      <h3 style="font-size:1.05rem;">Quick check — is it a proposition?</h3>
+      <div class="quiz-item" id="quizItem"></div>
+      <button class="btn btn-ghost" id="quizNext" style="align-self:flex-start;">Next sentence →</button>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="section-head">
+      <div class="eyebrow">CONCEPT 2 OF 3</div>
+      <h2>Build a truth table</h2>
+      <p>Type any formula using variables like <code>p</code>, <code>q</code>, <code>r</code> and the connectives above (ASCII also works: <code>!</code> <code>&amp;</code> <code>|</code> <code>-&gt;</code> <code>&lt;-&gt;</code>). The table below is generated live — nothing here is precomputed.</p>
+    </div>
+
+    <div class="builder panel">
+      <div class="stack">
+        <div class="field">
+          <label for="exprInput">Propositional formula</label>
+          <div class="builder-input-row">
+            <input type="text" id="exprInput" value="(p ∧ q) → r" autocomplete="off" spellcheck="false">
+          </div>
+          <div class="quick-syms">
+            <button type="button" data-sym="¬">¬</button>
+            <button type="button" data-sym="∧">∧</button>
+            <button type="button" data-sym="∨">∨</button>
+            <button type="button" data-sym="→">→</button>
+            <button type="button" data-sym="↔">↔</button>
+            <button type="button" data-sym="(">(</button>
+            <button type="button" data-sym=")">)</button>
+          </div>
+          <div class="error-msg hidden" id="exprError"></div>
+        </div>
+        <div class="verdict">
+          <span class="pill" id="verdictPill">—</span>
+        </div>
+        <p class="muted" style="font-size:.85rem;">Try <code>p ∨ ¬p</code> (tautology), <code>p ∧ ¬p</code> (contradiction), or write your own with up to 4 variables.</p>
+      </div>
+
+      <div class="truth-table-wrap">
+        <table class="truth-table" id="truthTable"></table>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="section-head">
+      <div class="eyebrow">CONCEPT 3 OF 3</div>
+      <h2>Predicates &amp; quantifiers</h2>
+      <p>A predicate <code>P(x)</code> becomes a proposition once <code>x</code> is fixed. Pick your own domain and predicate below — the universal (<code>∀x P(x)</code>) and existential (<code>∃x P(x)</code>) statements are evaluated element-by-element over whatever domain you type in.</p>
+    </div>
+
+    <div class="panel quant-grid">
+      <div class="stack">
+        <div class="field">
+          <label for="domainInput">Domain (comma list, or a range like <code>-5..5</code>)</label>
+          <input type="text" id="domainInput" value="-3..6" autocomplete="off" spellcheck="false">
+        </div>
+        <div class="field">
+          <label for="predicateInput">Predicate P(x) — a JavaScript-style boolean condition on <code>x</code></label>
+          <input type="text" id="predicateInput" value="x*x <= 16" autocomplete="off" spellcheck="false">
+        </div>
+        <div class="error-msg hidden" id="predError"></div>
+        <div>
+          <label>Domain elements</label>
+          <div class="domain-list" id="domainList"></div>
+        </div>
+      </div>
+      <div class="stack">
+        <div class="quant-result" id="forallResult"></div>
+        <div class="quant-result" id="existsResult"></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section center">
+    <div class="panel">
+      <h3 style="font-size:1.4rem;">Ready to race the clock?</h3>
+      <p style="max-width:480px; margin:10px auto 20px;">Take these same ideas into a live multiplayer round — freshly generated formulas and quantifier questions every game, no two rounds alike.</p>
+      <a class="btn btn-primary" href="game.html">Play Logic Duel →</a>
+    </div>
+  </section>
+</div>
+
+<div class="toast" id="toast"></div>
+<script type="module" src="js/theme.js"></script>
+<script type="module" src="js/learn.js"></script>
+</body>
+</html>

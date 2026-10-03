@@ -1,0 +1,252 @@
+[
+  {
+    "text": "Pune is the cultural capital of Maharashtra.",
+    "isProp": true,
+    "why": "It is a declarative statement with a definite truth value (True)."
+  },
+  {
+    "text": "Close the window immediately.",
+    "isProp": false,
+    "why": "It is an imperative statement (a command), so it carries no truth value."
+  },
+  {
+    "text": "2 + 2 = 5",
+    "isProp": true,
+    "why": "It is a declarative mathematical statement. Even though it is false, it is still a valid proposition!"
+  },
+  {
+    "text": "What time is the Discrete Mathematics lecture?",
+    "isProp": false,
+    "why": "It is an interrogative sentence (a question), so it carries no truth value."
+  },
+  {
+    "text": "x + 3 = 10",
+    "isProp": false,
+    "why": "It contains a free variable x. It is a predicate P(x), not a proposition, until x is assigned a specific value."
+  },
+  {
+    "text": "Every prime number greater than 2 is odd.",
+    "isProp": true,
+    "why": "It is a declarative mathematical statement with a definite truth value (True)."
+  },
+  {
+    "text": "This statement is false.",
+    "isProp": false,
+    "why": "This is the classic Liar Paradox. It cannot be consistently assigned a value of True or False."
+  },
+  {
+    "text": "Please submit your assignment before midnight.",
+    "isProp": false,
+    "why": "It is a request/command, so it cannot be assigned a truth value."
+  },
+  {
+    "text": "7 is a prime number.",
+    "isProp": true,
+    "why": "It is a declarative statement that is definitively True."
+  },
+  {
+    "text": "There are no real solutions to x² + 1 = 0.",
+    "isProp": true,
+    "why": "It is a precise mathematical declaration that holds a definite truth value (True)."
+  },
+  {
+    "text": "New Delhi is the capital of India.",
+    "isProp": true,
+    "why": "It is a declarative sentence that is definitively True."
+  },
+  {
+    "text": "How are you feeling today?",
+    "isProp": false,
+    "why": "It is a question, so it carries no truth value."
+  },
+  {
+    "text": "Turn off the lights when leaving.",
+    "isProp": false,
+    "why": "It is a command, so it is not a proposition."
+  },
+  {
+    "text": "Water freezes at 0 degrees Celsius at standard atmospheric pressure.",
+    "isProp": true,
+    "why": "It is a scientific declarative statement with a truth value of True."
+  },
+  {
+    "text": "The sum of angles in a Euclidean triangle is 180 degrees.",
+    "isProp": true,
+    "why": "It is a geometric declaration that holds a definite truth value (True)."
+  },
+  {
+    "text": "x > 5",
+    "isProp": false,
+    "why": "It is a predicate containing an unbound variable x, so its truth value depends on x."
+  },
+  {
+    "text": "15 is a multiple of 4.",
+    "isProp": true,
+    "why": "It is a declarative statement with a definite truth value (False)."
+  },
+  {
+    "text": "Always double-check your code before committing.",
+    "isProp": false,
+    "why": "It is advice/command, not a declarative statement."
+  },
+  {
+    "text": "Is 11 an even number?",
+    "isProp": false,
+    "why": "It is an interrogative sentence (a question)."
+  },
+  {
+    "text": "If x = 2, then x + 3 = 5.",
+    "isProp": true,
+    "why": "The variable x is quantified within the condition, making this a fully bounded logical assertion (True)."
+  },
+  {
+    "text": "Mumbai is located in South America.",
+    "isProp": true,
+    "why": "It is a declarative statement that is definitively False."
+  },
+  {
+    "text": "Have a wonderful day!",
+    "isProp": false,
+    "why": "It is an exclamation/wish, which carries no truth value."
+  },
+  {
+    "text": "The square root of 16 is 4.",
+    "isProp": true,
+    "why": "It is a declarative mathematical statement (True)."
+  },
+  {
+    "text": "All integers are real numbers.",
+    "isProp": true,
+    "why": "It is a universal mathematical declaration with a definite truth value (True)."
+  },
+  {
+    "text": "y - 4 = z",
+    "isProp": false,
+    "why": "It contains free variables y and z, making it an unassigned open predicate."
+  },
+  {
+    "text": "Do not enter without permission.",
+    "isProp": false,
+    "why": "It is a command."
+  },
+  {
+    "text": "Every even integer greater than 2 can be expressed as the sum of two primes.",
+    "isProp": true,
+    "why": "This is Goldbach's Conjecture. Even though unproven, it is a declarative sentence that is either True or False."
+  },
+  {
+    "text": "Why is the sky blue?",
+    "isProp": false,
+    "why": "It is a question."
+  },
+  {
+    "text": "For every real number x, x² >= 0.",
+    "isProp": true,
+    "why": "The variable x is universally quantified, making it a complete proposition (True)."
+  },
+  {
+    "text": "Complete your discrete math homework now.",
+    "isProp": false,
+    "why": "It is an imperative command."
+  },
+  {
+    "text": "The moon is made of green cheese.",
+    "isProp": true,
+    "why": "It is a declarative sentence with a truth value of False."
+  },
+  {
+    "text": "3 + 5 = 8 and 2 * 3 = 6",
+    "isProp": true,
+    "why": "It is a compound declarative proposition linked by AND (True)."
+  },
+  {
+    "text": "Pass the salt, please.",
+    "isProp": false,
+    "why": "It is a polite request/command."
+  },
+  {
+    "text": "Who directed the movie Inception?",
+    "isProp": false,
+    "why": "It is an interrogative statement."
+  },
+  {
+    "text": "There exists an integer x such that x² = 2.",
+    "isProp": true,
+    "why": "The existential quantifier binds x, yielding a proposition with a truth value of False."
+  },
+  {
+    "text": "Python is a programming language.",
+    "isProp": true,
+    "why": "It is a factual declarative statement (True)."
+  },
+  {
+    "text": "x² + y² = z²",
+    "isProp": false,
+    "why": "It is an open equation with unbound variables x, y, and z."
+  },
+  {
+    "text": "Parallel lines never intersect in Euclidean geometry.",
+    "isProp": true,
+    "why": "It is a declarative geometric assertion (True)."
+  },
+  {
+    "text": "Hurrah! We won the match!",
+    "isProp": false,
+    "why": "It is an exclamatory sentence expressing emotion, carrying no truth value."
+  },
+  {
+    "text": "Where is the nearest railway station?",
+    "isProp": false,
+    "why": "It is a question."
+  },
+  {
+    "text": "The set of prime numbers is infinite.",
+    "isProp": true,
+    "why": "It is a declarative mathematical proposition (True)."
+  },
+  {
+    "text": "Don't touch the hot oven.",
+    "isProp": false,
+    "why": "It is a command."
+  },
+  {
+    "text": "10 is an odd number or 10 is a prime number.",
+    "isProp": true,
+    "why": "It is a compound proposition linked by OR (False)."
+  },
+  {
+    "text": "Is Python easier than C++?",
+    "isProp": false,
+    "why": "It is a question."
+  },
+  {
+    "text": "Light travels in a straight line in a homogeneous medium.",
+    "isProp": true,
+    "why": "It is a physical assertion that has a truth value of True."
+  },
+  {
+    "text": "Solve for x in the given equation.",
+    "isProp": false,
+    "why": "It is an instruction/command."
+  },
+  {
+    "text": "The set {1, 2, 3} has exactly 8 subsets.",
+    "isProp": true,
+    "why": "It is a mathematical declaration regarding set theory (True, since 2³ = 8)."
+  },
+  {
+    "text": "An equilateral triangle has three equal sides.",
+    "isProp": true,
+    "why": "It is a definition phrased as a declarative sentence (True)."
+  },
+  {
+    "text": "x is an even integer.",
+    "isProp": false,
+    "why": "It is a predicate P(x) containing an unassigned variable."
+  },
+  {
+    "text": "Binary search has a time complexity of O(log n).",
+    "isProp": true,
+    "why": "It is an algorithmic complexity assertion with a definite truth value (True)."
+  }
+]

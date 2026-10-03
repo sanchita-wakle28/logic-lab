@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Propositions &amp; Predicates — Interactive Logic Lab</title>
+<link rel="stylesheet" href="css/style.css">
+<style>
+  .hero { padding: 64px 0 20px; }
+  .hero-grid { display: grid; grid-template-columns: 1.15fr 0.85fr; gap: 40px; align-items: center; }
+  .hero h1 { font-size: clamp(2.1rem, 5vw, 3.4rem); letter-spacing: -0.01em; }
+  .hero h1 .sym { color: var(--accent-bright); }
+  .hero .lede { font-size: 1.08rem; max-width: 480px; margin-top: 16px; }
+  .cta-row { display: flex; gap: 14px; margin-top: 30px; flex-wrap: wrap; }
+
+  .orbit {
+    aspect-ratio: 1;
+    border-radius: 28px;
+    border: 1px solid var(--border);
+    background: var(--panel);
+    position: relative;
+    display: grid; place-items: center;
+    overflow: hidden;
+  }
+  .orbit table.truth-table { font-size: 0.85rem; }
+  .orbit-caption { position: absolute; bottom: 14px; left: 18px; right: 18px; font-size: .78rem; color: var(--muted); font-family: var(--font-mono); }
+
+  .track-cards { margin-top: 10px; }
+  .card .card-top { display: flex; align-items: center; justify-content: space-between; margin-bottom: 14px; }
+  .card .icon {
+    width: 44px; height: 44px; border-radius: 12px;
+    display: grid; place-items: center; font-family: var(--font-mono); font-weight: 700; font-size: 1.2rem;
+  }
+  .icon.learn { background: var(--accent-soft); color: var(--accent-bright); }
+  .icon.play { background: var(--true-soft); color: var(--true); }
+  .card h3 { font-size: 1.3rem; margin-bottom: 8px; }
+  .card .go { font-family: var(--font-mono); font-size: .85rem; color: var(--accent-bright); }
+
+  .syllabus-row { display: flex; gap: 10px; flex-wrap: wrap; margin-top: 10px; }
+  .syllabus-row .pill { background: var(--panel-2); color: var(--text-dim); }
+
+  @media (max-width: 860px) {
+    .hero-grid { grid-template-columns: 1fr; }
+    .orbit { max-width: 420px; margin: 0 auto; }
+  }
+</style>
+</head>
+<body>
+<div class="topbar">
+  <a class="brand" href="index.html"><span class="mark">P</span>Logic Lab</a>
+  <div class="nav-controls">
+    <nav class="nav-links">
+      <a href="index.html">Home</a>
+      <a href="learn.html">Learn</a>
+      <a href="game.html">Play</a>
+    </nav>
+    <select id="themeSelect" class="theme-select" aria-label="Select Theme">
+  <option value="neon-circuit">⚡ Neon Circuit (Dark)</option>
+  <option value="neon-twilight">🌆 Neon Twilight (Light)</option>
+  <option value="dystopia-glitch">🤖 Cyberpunk Glitch (Dark)</option>
+  <option value="dystopia-light">⚠️ Cyberpunk Hazard (Light)</option>
+  <option value="pixel-lavender">🔮 Pixel Lavender (Dark)</option>
+  <option value="pixel-sakura">🌸 Pixel Sakura (Light)</option>
+</select>
+  </div>
+</div>
+
+<div class="wrap">
+  <section class="hero">
+    <div class="hero-grid">
+      <div>
+        <div class="eyebrow">DISCRETE MATHEMATICS · UNIT I · LOGIC &amp; PROOF TECHNIQUES</div>
+        <h1>Think in <span class="sym">truth values.</span><br>Propositions &amp; predicates, made interactive.</h1>
+        <p class="lede">Build your own statements, watch a truth table assemble itself row by row, explore quantifiers over a domain you choose — then put it to the test in a live multiplayer logic duel with your classmates.</p>
+        <div class="cta-row">
+          <a href="learn.html" class="btn btn-primary">Start learning →</a>
+          <a href="game.html" class="btn btn-ghost">Play the multiplayer game</a>
+        </div>
+        <div class="syllabus-row">
+          <span class="pill">Propositions</span>
+          <span class="pill">¬ ∧ ∨ → ↔</span>
+          <span class="pill">Truth Tables</span>
+          <span class="pill">Predicates P(x)</span>
+          <span class="pill">∀ Universal</span>
+          <span class="pill">∃ Existential</span>
+        </div>
+      </div>
+
+      <div class="orbit" id="heroOrbit" aria-hidden="true">
+        <div id="heroTableSlot"></div>
+        <div class="orbit-caption">live truth table for a randomly generated statement — refreshes automatically</div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section track-cards">
+    <div class="section-head">
+      <div class="eyebrow">TWO WAYS IN</div>
+      <h2>Learn the concept, then prove it under pressure.</h2>
+    </div>
+    <div class="grid-2">
+      <a class="card" href="learn.html">
+        <div class="card-top">
+          <div class="icon learn">∀</div>
+          <span class="pill">Self-paced</span>
+        </div>
+        <h3>Interactive Concept Lab</h3>
+        <p>Type any propositional formula and get a truth table generated on the fly. Define a predicate and a domain of your own choosing and watch ∀ and ∃ get evaluated element by element.</p>
+        <span class="go">Open the lab →</span>
+      </a>
+      <a class="card" href="game.html">
+        <div class="card-top">
+          <div class="icon play">⚡</div>
+          <span class="pill">2–8 players</span>
+        </div>
+        <h3>Logic Duel — Multiplayer Arena</h3>
+        <p>Create a room, share the code, and race classmates to evaluate freshly generated propositions, classify formulas, and reason about quantifiers over a random domain — live, on any phone or laptop.</p>
+        <span class="go">Enter the arena →</span>
+      </a>
+    </div>
+  </section>
+</div>
+
+<script type="module">
+  import { randomExpression, generateTruthTable } from './js/logic-engine.js';
+
+  function renderMiniTable() {
+    const vars = ['p', 'q', 'r'].slice(0, 2 + Math.round(Math.random()));
+    let expr;
+    try {
+      expr = randomExpression(vars, 2);
+      var { rows } = generateTruthTable(expr);
+    } catch (e) { return; }
+    const varsUsed = Object.keys(rows[0].env);
+    let html = `<table class="truth-table"><thead><tr>`;
+    varsUsed.forEach(v => html += `<th>${v}</th>`);
+    html += `<th class="sym">${expr}</th></tr></thead><tbody>`;
+    rows.forEach(r => {
+      html += '<tr>';
+      varsUsed.forEach(v => html += `<td class="${r.env[v] ? 'val-true' : 'val-false'}">${r.env[v] ? 'T' : 'F'}</td>`);
+      html += `<td class="result-col ${r.result ? 'val-true' : 'val-false'}">${r.result ? 'T' : 'F'}</td></tr>`;
+    });
+    html += '</tbody></table>';
+    document.getElementById('heroTableSlot').innerHTML = html;
+  }
+
+  renderMiniTable();
+  setInterval(renderMiniTable, 4200);
+</script>
+<script type="module" src="js/theme.js"></script>
+</body>
+</html>
